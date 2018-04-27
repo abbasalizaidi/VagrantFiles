@@ -1,0 +1,21 @@
+VAGRANTFILE_API_VERSION = '2'
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+    config.vm.box = "ubuntu/trusty64"
+    config.vm.box_check_update = false
+  #VirtualBox1
+  config.vm.define "server1" do |srv|
+    srv.vm.hostname = "server1"
+    srv.vm.provider "virtualbox" do |vb|
+      vb.name = "App1"
+      vb.memory = 256
+    end
+  end
+  #VirtualBox2
+  config.vm.define "server2" do |srv|
+    srv.vm.hostname = "server2"
+    srv.vm.provider "virtualbox" do |vb|
+      vb.name = "App2"
+      vb.memory = 256
+    end
+  end
+end
